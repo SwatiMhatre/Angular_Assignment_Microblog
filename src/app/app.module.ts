@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
@@ -21,6 +22,10 @@ import { ArticleComponent } from './article/article.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([
+      { path : 'home', component: HomeComponent},
+      { path : 'activity', component: ActivityComponent},
+    ]),
     FormsModule
   ],
   providers: [],
