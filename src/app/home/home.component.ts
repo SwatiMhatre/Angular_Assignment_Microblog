@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Blogs } from '../src/app/shared/model/blogs.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  blogs : Observable<Blogs[]>
 
+  constructor(private store:Store<AppState>) { 
+    this.blogs=store.select('blogs');
+  }
   public articleData = [
     {
       title: 'Article about Smile',
@@ -47,7 +55,6 @@ export class HomeComponent implements OnInit {
   
   ]
   
-  constructor() { }
 
   ngOnInit() {
   }

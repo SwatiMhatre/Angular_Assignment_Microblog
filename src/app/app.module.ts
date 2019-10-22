@@ -26,6 +26,9 @@ import { ArticleComponent } from './article/article.component';
       { path : 'home', component: HomeComponent},
       { path : 'activity', component: ActivityComponent},
     ]),
+    StoreModule.forRoot({
+      blogs : reducer
+    }),
     FormsModule
   ],
   providers: [],
