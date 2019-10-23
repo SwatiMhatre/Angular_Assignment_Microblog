@@ -13,7 +13,7 @@ import * as HomeActions from '../shared/action/home.actions'
 })
 export class HomeComponent implements OnInit {
  
-  blogs : Blogs[];
+  blogs  : Blogs[];
   blogsObservale : Observable<Blogs[]>;
   
 

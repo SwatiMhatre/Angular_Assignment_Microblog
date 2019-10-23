@@ -12,7 +12,7 @@ import { ArticleComponent } from './article/article.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './shared/reducer/home.reducer';
 import { HttpClientModule } from '@angular/common/http';
-
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     ]),
     StoreModule.forRoot({
       blogs : reducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge : 10
     }),
     FormsModule
   ],

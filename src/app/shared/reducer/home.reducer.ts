@@ -16,7 +16,9 @@ article : "",
 export function reducer(state:Blogs[]= initialState, action:HomeActions.Action){
     switch (action.type){
         case HomeActions.LOAD_HOME:
-            return[...state, action.payload]
+            return Object.assign([], state, action.payload);
+            default :
+            state
         
     }
 }
