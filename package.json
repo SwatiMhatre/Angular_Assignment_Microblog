@@ -23,6 +23,7 @@
     "@ngrx/store": "^8.4.0",
     "bootstrap": "^3.4.1",
     "ngrx": "0.0.1-security",
+    "redux-devtools-extension": "^2.13.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

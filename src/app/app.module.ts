@@ -11,6 +11,7 @@ import { BsNavigationComponent } from './bs-navigation/bs-navigation.component';
 import { ArticleComponent } from './article/article.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './shared/reducer/home.reducer';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { reducer } from './shared/reducer/home.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path : 'home', component: HomeComponent},
       { path : 'activity', component: ActivityComponent},

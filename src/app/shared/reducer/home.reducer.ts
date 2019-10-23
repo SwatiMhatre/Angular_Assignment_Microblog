@@ -5,18 +5,18 @@ import * as HomeActions from '../action/home.actions'
 
 const initialState : Blogs[] = [{
 id : "",
-content : "",
-     image : "",
+title:"",
+article : "",
+     imageURL : "",
      likes : 0,
      dislikes : 0,
-     comments : new String[0]
+     comments : []
 }];
 
 export function reducer(state:Blogs[]= initialState, action:HomeActions.Action){
     switch (action.type){
         case HomeActions.LOAD_HOME:
             return[...state, action.payload]
-        default:
-            state
+        
     }
 }

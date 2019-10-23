@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Blogs } from '../shared/model/blogs.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
+import {BlogsService} from '../shared/service/blogs.service'
+import * as HomeActions from '../shared/action/home.actions'
 
 @Component({
   selector: 'app-home',
@@ -10,53 +12,29 @@ import { AppState } from '../app.state';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  blogs : Observable<Blogs[]>
+ 
+  blogs : Blogs[];
+  blogsObservale : Observable<Blogs[]>;
+  
 
-  constructor(private store:Store<AppState>) { 
-    this.blogs=store.select('blogs');
+  constructor(private store:Store<AppState>, private blogsService : BlogsService) {
   }
-  public articleData = [
-    {
-      title: 'Article about Smile',
-      imgUrl: 'https://www.w3schools.com/html/pic_trulli.jpg',
-      article: `Running your app outside a browser means that you can take advantage of server-side
-      pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web
-      Worker to improve your app's responsiveness by using multiple threads. And
-      it means that you could run your app inside Electron.js
-      or Windows Universal to deliver it to the desktop`,
-    },
-    {
-      title: 'Article about Smile',
-      imgUrl: 'https://img.freepik.com/free-photo/blue-mountains-famous-tourism-scenery-lijiang_1417-1143.jpg',
-      article: `Running your app outside a browser means that you can take advantage of server-side
-      pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web
-      Worker to improve your app's responsiveness by using multiple threads. And
-      it means that you could run your app inside Electron.js
-      or Windows Universal to deliver it to the desktop`,
-    },
-    {
-      title: 'Article about Smile',
-      imgUrl: 'http://www.lovethispic.com/uploaded_images/5181-Spring-Green-Scenery.jpg',
-      article: `Running your app outside a browser means that you can take advantage of server-side
-      pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web
-      Worker to improve your app's responsiveness by using multiple threads. And
-      it means that you could run your app inside Electron.js
-      or Windows Universal to deliver it to the desktop`,
-    },
-    {
-      title: 'Article about Smile',
-      imgUrl: 'http://www.lebanoninapicture.com/Prv/Images/Pages/Page_209488/lebanon-sunset-mountains-scenery-sunsets-sunset-3-14-2019-2-10-57-pm-l.jpg',
-      article: `Running your app outside a browser means that you can take advantage of server-side
-      pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web
-      Worker to improve your app's responsiveness by using multiple threads. And
-      it means that you could run your app inside Electron.js
-      or Windows Universal to deliver it to the desktop`,
-    },
   
-  ]
-  
-
   ngOnInit() {
+    this.blogsService.getBlogs().subscribe(data => {
+      this.blogs = data;
+      console.log(data)
+      this.store.dispatch(new HomeActions.LoadHome(this.blogs));
+      this.getDataFromStore();
+    })
+    
   }
 
+  getDataFromStore(): void {
+    this.store.select('blogs').subscribe(data =>{
+      console.log(data)
+      this.blogs = data;
+    });
+    
+  }
 }

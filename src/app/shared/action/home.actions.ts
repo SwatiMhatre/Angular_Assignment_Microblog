@@ -10,7 +10,7 @@ export const ADD_COMMENT = '[COMMENT] add'
 export class LoadHome implements Action{
 readonly type = LOAD_HOME
 
-constructor(public payload : Blogs) {}
+constructor(public payload : Blogs[]) {}
 
 }
 

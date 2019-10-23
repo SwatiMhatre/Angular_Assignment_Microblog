@@ -1,8 +1,9 @@
 
 export interface Blogs {
      id : string;
-     content : string;
-     image : string;
+     article : string;
+     title : string;
+     imageURL : string;
      likes : number;
      dislikes : number;
      comments : string[];
