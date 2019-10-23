@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ActivityComponent } from './activity/activity.component';
 import { BsNavigationComponent } from './bs-navigation/bs-navigation.component';
 import { ArticleComponent } from './article/article.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './shared/reducer/home.reducer';
 
 
 @NgModule({

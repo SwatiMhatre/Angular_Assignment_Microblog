@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Blogs } from '../src/app/shared/model/blogs.model';
+import { Blogs } from '../shared/model/blogs.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 
