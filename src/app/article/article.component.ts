@@ -16,6 +16,7 @@ export class ArticleComponent implements OnInit {
 
   commentText : String = ""
   public commentArray = [];
+  public viewArticleData = [];
 
   addComment() {
     if(this.commentText != ""){
