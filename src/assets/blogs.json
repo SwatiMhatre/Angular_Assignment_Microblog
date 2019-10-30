@@ -6,41 +6,33 @@
        "article":"A designer looks at the details searching for evidence through research to produce conceptual ideas that’s best toward supporting the content and values with visual elements. The subject of, “How do we generate creative ideas?” is very legitimate question. The most consuming part of expanding our horizons toward scenic concepts is much more than witnessing creativity, and creative people. It starts with us opening our mind to the possibilities. To have an attitude toward learning, seeking, and engaging in creativity and to be willing to be adventurous, inquisitive and curious. Our imagination is highly visual. Whether outside or inside, colorful trees or concerts, star lit skies or the architecture of a great building, scenic design is a process of discovery. Discovering what will best clarify and support the setting, environment, atmosphere, ambience, & world that is being created.Running your app outside a browser means that you can take advantage of server-side pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web Worker to improve your app's responsiveness by using multiple threads. And it means that you could run your app inside Electron.js or Windows Universal to deliver it to the desktop",
        "likes":0,
        "dislikes":0,
-       "comments":[ 
- 
-       ]
+       "comments":[]
     },
     { 
-       "id":1,
+       "id":2,
        "title":"Article about Smile",
        "imageURL":"https://img.freepik.com/free-photo/blue-mountains-famous-tourism-scenery-lijiang_1417-1143.jpg",
        "article":"A designer looks at the details searching for evidence through research to produce conceptual ideas that’s best toward supporting the content and values with visual elements. The subject of, “How do we generate creative ideas?” is very legitimate question. The most consuming part of expanding our horizons toward scenic concepts is much more than witnessing creativity, and creative people. It starts with us opening our mind to the possibilities. To have an attitude toward learning, seeking, and engaging in creativity and to be willing to be adventurous, inquisitive and curious. Our imagination is highly visual. Whether outside or inside, colorful trees or concerts, star lit skies or the architecture of a great building, scenic design is a process of discovery. Discovering what will best clarify and support the setting, environment, atmosphere, ambience, & world that is being created.Running your app outside a browser means that you can take advantage of server-side pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web Worker to improve your app's responsiveness by using multiple threads. And it means that you could run your app inside Electron.js or Windows Universal to deliver it to the desktop",
        "likes":0,
        "dislikes":0,
-       "comments":[ 
- 
-       ]
+       "comments":["Comment 1", "Comment 2", "Comment 3"]
     },
     { 
-       "id":1,
+       "id":3,
        "title":"Article about Smile",
        "imageURL":"http://www.lovethispic.com/uploaded_images/5181-Spring-Green-Scenery.jpg",
        "article":"A designer looks at the details searching for evidence through research to produce conceptual ideas that’s best toward supporting the content and values with visual elements. The subject of, “How do we generate creative ideas?” is very legitimate question. The most consuming part of expanding our horizons toward scenic concepts is much more than witnessing creativity, and creative people. It starts with us opening our mind to the possibilities. To have an attitude toward learning, seeking, and engaging in creativity and to be willing to be adventurous, inquisitive and curious. Our imagination is highly visual. Whether outside or inside, colorful trees or concerts, star lit skies or the architecture of a great building, scenic design is a process of discovery. Discovering what will best clarify and support the setting, environment, atmosphere, ambience, & world that is being created.Running your app outside a browser means that you can take advantage of server-side pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web Worker to improve your app's responsiveness by using multiple threads. And it means that you could run your app inside Electron.js or Windows Universal to deliver it to the desktop",
        "likes":0,
        "dislikes":0,
-       "comments":[ 
- 
-       ]
+       "comments":["Comment 1", "Comment 2"]
     },
     { 
-       "id":1,
+       "id":4,
        "title":"Article about Smile",
        "imageURL":"http://www.lebanoninapicture.com/Prv/Images/Pages/Page_209488/lebanon-sunset-mountains-scenery-sunsets-sunset-3-14-2019-2-10-57-pm-l.jpg",
        "article":"A designer looks at the details searching for evidence through research to produce conceptual ideas that’s best toward supporting the content and values with visual elements. The subject of, “How do we generate creative ideas?” is very legitimate question. The most consuming part of expanding our horizons toward scenic concepts is much more than witnessing creativity, and creative people. It starts with us opening our mind to the possibilities. To have an attitude toward learning, seeking, and engaging in creativity and to be willing to be adventurous, inquisitive and curious. Our imagination is highly visual. Whether outside or inside, colorful trees or concerts, star lit skies or the architecture of a great building, scenic design is a process of discovery. Discovering what will best clarify and support the setting, environment, atmosphere, ambience, & world that is being created.Running your app outside a browser means that you can take advantage of server-side pre-rendering for near-instant first app render times and for SEO. It means you could run from inside a Web Worker to improve your app's responsiveness by using multiple threads. And it means that you could run your app inside Electron.js or Windows Universal to deliver it to the desktop",
        "likes":0,
        "dislikes":0,
-       "comments":[ 
- 
-       ]
+       "comments":["Comment 3"]
     }
  ]

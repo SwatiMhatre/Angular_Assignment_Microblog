@@ -12,11 +12,15 @@ export class ArticleComponent implements OnInit {
   @Input() article: String;
   public likeCounter = 0;
   public dislikeCounter = 0;
-  constructor() { }
 
-  commentText : String = ""
+  public commentText : String = ""
   public commentArray = [];
   public viewArticleData = [];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
   addComment() {
     if(this.commentText != ""){
@@ -37,6 +41,5 @@ export class ArticleComponent implements OnInit {
 deleteComment(index: number){
    this.commentArray.splice(index,1);
 }
-  ngOnInit() {
-  }
+  
 }

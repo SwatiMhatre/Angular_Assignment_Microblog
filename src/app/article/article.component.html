@@ -6,22 +6,24 @@
     <div class="row">
         <img src={{img}} class="img-thumbnail col-sm-6">
         <article class="col-sm-6 ">{{article}}</article>
-
     </div>
+
     <div class="row">
         <div class="icon col-sm-1"><i (click)="increaseCounter('like')" class="fa fa-thumbs-up"
                 aria-hidden="true"></i><span class="counterText"> {{likeCounter}}</span></div>
         <div class="icon col-sm-1"><i (click)="increaseCounter('dislike')" class="fa fa-thumbs-down"
                 aria-hidden="true"></i><span class="counterText"> {{dislikeCounter}}</span></div>
     </div>
-    <div class="row">
 
+    <div class="row">
         <label class="col-sm-2">Comment:</label>
         <textarea class="col-sm-4 textarea" [(ngModel)]="commentText"></textarea>
     </div>
+
     <div class="row">
         <button class="col-sm col-sm-offset-2 btn-secondary" type="button" (click)="addComment()">ADD</button>
     </div>
+
     <div class="commentsContainer">
         <div  *ngFor="let comment of commentArray; let id=index ">
             {{comment}}

@@ -1,0 +1,30 @@
+[ 
+    { 
+       "id":1,
+         "blogId":"1",
+         "likes":true,
+         "dislikes":false,
+         "comments":"hello great"
+    },
+    { 
+      "id":2,
+      "blogId":"1",
+      "likes":true,
+      "dislikes":false,
+      "comments":"Very Good"
+    },
+    { 
+      "id":3,
+      "blogId":"2",
+      "likes":false,
+      "dislikes":true,
+      "comments":""
+    },
+    { 
+      "id":4,
+      "blogId":"4",
+      "likes":true,
+      "dislikes":true,
+      "comments":""
+    }
+ ]
