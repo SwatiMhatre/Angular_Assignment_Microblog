@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import {BlogsService} from '../shared/service/blogs.service'
 import * as HomeActions from '../shared/action/home.actions'
+import { Home } from '../shared/model/home.model';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,10 @@ import * as HomeActions from '../shared/action/home.actions'
 export class HomeComponent implements OnInit {
  
   blogs  : Blogs[];
+  home : Home = {
+    blogs: this.blogs,
+    needsData : true
+  };
   blogsObservale : Observable<Blogs[]>;
   
 
@@ -21,20 +26,24 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.blogsService.getBlogs().subscribe(data => {
-      this.blogs = data;
-      console.log(data)
-      this.store.dispatch(new HomeActions.LoadHome(this.blogs));
-      this.getDataFromStore();
-    })
+    if(this.getDataFromStore()){
+      this.blogsService.getBlogs().subscribe(data => {
+        this.blogs = data;
+        console.log(data)
+        this.store.dispatch(new HomeActions.LoadHome(this.blogs));
+        this.getDataFromStore();
+      })
+    }
+    
     
   }
 
-  getDataFromStore(): void {
+  getDataFromStore(): boolean {
     this.store.select('blogs').subscribe(data =>{
       console.log(data)
-      this.blogs = data;
+      this.home = data;
     });
-    
+    this.blogs = this.home.blogs;
+    return this.home.needsData;
   }
 }

@@ -11,10 +11,12 @@ import { ActivityComponent } from './activity/activity.component';
 import { BsNavigationComponent } from './bs-navigation/bs-navigation.component';
 import { ArticleComponent } from './article/article.component';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './shared/reducer/home.reducer';
+import { homeReducer } from './shared/reducer/home.reducer';
+import { activityReducer } from './shared/reducer/blog.activity.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path : 'activity', component: ActivityComponent},
     ]),
     StoreModule.forRoot({
-      blogs : reducer
+      blogs:homeReducer,
+      activity:activityReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge : 10

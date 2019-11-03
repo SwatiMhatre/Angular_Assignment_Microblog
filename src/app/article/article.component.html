@@ -9,10 +9,10 @@
     </div>
 
     <div class="row">
-        <div class="icon col-sm-1"><i (click)="increaseCounter('like')" class="fa fa-thumbs-up"
-                aria-hidden="true"></i><span class="counterText"> {{likeCounter}}</span></div>
-        <div class="icon col-sm-1"><i (click)="increaseCounter('dislike')" class="fa fa-thumbs-down"
-                aria-hidden="true"></i><span class="counterText"> {{dislikeCounter}}</span></div>
+        <div class="icon col-sm-1"><i (click)="likeOrDislikeActivity('like')" class="fa fa-thumbs-up"
+                aria-hidden="true"></i><span class="counterText"> {{likes}}</span></div>
+        <div class="icon col-sm-1"><i (click)="likeOrDislikeActivity('dislike')" class="fa fa-thumbs-down"
+                aria-hidden="true"></i><span class="counterText"> {{dislikes}}</span></div>
     </div>
 
     <div class="row">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="commentsContainer">
-        <div  *ngFor="let comment of commentArray; let id=index ">
+        <div  *ngFor="let comment of comments; let id=index ">
             {{comment}}
             <i class="fa fa-trash col-sm-offset-2" aria-hidden="true" (click)="deleteComment(id)"></i>
         </div>

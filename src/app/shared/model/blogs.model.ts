@@ -6,6 +6,6 @@ export interface Blogs {
      imageURL : string;
      likes : number;
      dislikes : number;
-     comments : string[];
+     comments : Array<string>;
 
 }
