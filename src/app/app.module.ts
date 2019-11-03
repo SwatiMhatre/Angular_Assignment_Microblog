@@ -1,3 +1,4 @@
+import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './shared/reducer/home.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({
       maxAge : 10
     }),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
