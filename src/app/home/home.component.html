@@ -1,3 +1,10 @@
-<div *ngFor="let blog of blogs">
-    <app-article title={{blog.title}} img={{blog.imageURL}} article={{blog.article}} articleId={{blog.id}} likes={{blog.likes}} dislikes={{blog.dislikes}} [comments]="blog.comments"></app-article>
+<div class="container" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngFor="let blog of blogs">
+                <app-article title={{blog.title}} img={{blog.imageURL}} article={{blog.article}} articleId={{blog.id}}
+                    likes={{blog.likes}} dislikes={{blog.dislikes}} [comments]="blog.comments"></app-article>
+            </div>
+        </div>
+    </div>
 </div>
