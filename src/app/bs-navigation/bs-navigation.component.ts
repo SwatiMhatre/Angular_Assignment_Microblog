@@ -12,4 +12,8 @@ export class BsNavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectUser(id: number){
+
+  }
+
 }

@@ -26,7 +26,6 @@ export class ArticleComponent implements OnInit {
 
   public commentText: string;
   @Input() comments: Array<string>;
-  public commentss: Array<string>;
   public viewArticleData = [];
 
   activity: Activity = {

@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/login/login.component';
 import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([
       { path : 'home', component: HomeComponent},
       { path : 'activity', component: ActivityComponent},
+      { path : 'login', loadChildren : './auth/auth-module.module#AuthModuleModule'}
     ]),
     StoreModule.forRoot({
       blogs:homeReducer,
