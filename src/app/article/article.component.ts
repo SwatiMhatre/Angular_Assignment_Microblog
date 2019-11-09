@@ -25,15 +25,6 @@ export class ArticleComponent implements OnInit {
   public commentText: string;
   @Input() comments: Array<string>;
   public viewArticleData = [];
-
-  activity: Activity = {
-    id: "",
-    blogId: "",
-    likes: false,
-    dislikes: false,
-    comments: "",
-    activityType: ActivityType.UNDEFINED
-  };
   blogs: Blogs[];
   home: Home;
 
@@ -44,53 +35,69 @@ export class ArticleComponent implements OnInit {
   }
 
   addComment() {
-    this.activity.blogId = this.articleId;
-    if (this.commentText != "") {
+    let activity:Activity = {
+      id: "",
+      blogId: this.articleId,
+      likes: false,
+      dislikes: false,
+      comments: this.commentText,
+      activityType : ActivityType.ADD
+      };
+      this.activityStore.dispatch(new ActivityActions.AddComment(activity));
+      this.updateBlogsInStore(this.articleId);
+      this.updateHomePageActivityDetails(this.articleId);
       this.comments.push(this.commentText);
-      this.activity.activityType = ActivityType.ADD;
-      this.activity.comments = this.commentText;
       this.commentText = ""
-      this.activityStore.dispatch(new ActivityActions.AddComment(this.activity));
-      this.updateBlogsInStore();
-      this.updateHomePageActivityDetails();
-    }
   }
 
   likeOrDislikeActivity(type: string) {
-    this.activity.blogId = this.articleId;
+    let activity:Activity = {
+      id: "",
+      blogId: this.articleId,
+      likes: false,
+      dislikes: false,
+      comments: this.commentText,
+      activityType : ActivityType.ADD
+      };
     if (type === "like") {
-      this.activity.likes = true;
+      activity.likes = true;
       ++this.likes;
-      this.activity.activityType = ActivityType.LIKE;
-      this.activityStore.dispatch(new ActivityActions.AddLike(this.activity));
+      activity.activityType = ActivityType.LIKE;
+      this.activityStore.dispatch(new ActivityActions.AddLike(activity));
 
     } else {
-      this.activity.dislikes = true;
+      activity.dislikes = true;
       ++this.dislikes;
-      this.activity.activityType = ActivityType.DISLIKE;
-      this.activityStore.dispatch(new ActivityActions.AddDislike(this.activity));
+      activity.activityType = ActivityType.DISLIKE;
+      this.activityStore.dispatch(new ActivityActions.AddDislike(activity));
     }
 
-    this.updateBlogsInStore();
-    this.updateHomePageActivityDetails();
+    this.updateBlogsInStore(this.articleId);
+    this.updateHomePageActivityDetails(this.articleId);
   }
 
   deleteComment(index: number) {
-    this.activity.blogId = this.articleId;
+    let activity:Activity = {
+      id: "",
+      blogId: this.articleId,
+      likes: false,
+      dislikes: false,
+      comments: this.commentText,
+      activityType : ActivityType.REMOVE
+      };
     this.comments.splice(index, 1);
-    this.activity.activityType = ActivityType.REMOVE;
-    this.activityStore.dispatch(new ActivityActions.AddComment(this.activity));
-    this.updateBlogsInStore();
-    this.updateHomePageActivityDetails();
+    this.activityStore.dispatch(new ActivityActions.AddComment(activity));
+    this.updateBlogsInStore(this.articleId);
+    this.updateHomePageActivityDetails(this.articleId);
   }
-  updateBlogsInStore() {
+  updateBlogsInStore(blogId: string) {
     this.homeStore.select('blogs').subscribe(data => {
       this.home = data;
       this.blogs = this.home.blogs;
     });
     if (this.blogs) {
       this.blogs.forEach(blog => {
-        if (blog.id == this.activity.blogId) {
+        if (blog.id == blogId) {
           blog.likes = this.likes;
           blog.dislikes = this.dislikes;
           blog.comments = this.comments;
@@ -103,12 +110,12 @@ export class ArticleComponent implements OnInit {
     }
   }
 
-  updateHomePageActivityDetails() {
+  updateHomePageActivityDetails(blogId: string) {
     this.homeStore.select('blogs').subscribe(data => {
       this.home = data;
       if (this.home.blogs) {
         this.home.blogs.forEach(blog => {
-          if (blog.id == this.activity.blogId) {
+          if (blog.id == blogId) {
             this.likes = blog.likes;
             this.comments = blog.comments;
             this.dislikes = blog.dislikes;
