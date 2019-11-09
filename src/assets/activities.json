@@ -1,30 +1,34 @@
 [ 
     { 
-       "id":1,
          "blogId":"1",
          "likes":true,
          "dislikes":false,
-         "comments":"hello great"
+         "comments":"",
+         "activityType" : "Like",
+         "timeStamp" : "SUN 05 2019 / 10:12:32"
     },
     { 
-      "id":2,
       "blogId":"1",
-      "likes":true,
+      "likes":false,
       "dislikes":false,
-      "comments":"Very Good"
+      "comments":"Very Good",
+      "activityType" : "Comment Added",
+      "timeStamp" : "SUN 11 2019 / 1:39:48"
     },
     { 
-      "id":3,
       "blogId":"2",
       "likes":false,
       "dislikes":true,
-      "comments":""
+      "comments":"",
+      "activityType" : "Dilike",
+      "timeStamp" : "FRI 10 2019 / 12:39:48"
     },
     { 
-      "id":4,
       "blogId":"4",
-      "likes":true,
-      "dislikes":true,
-      "comments":""
+      "likes":false,
+      "dislikes":false,
+      "comments":"",
+      "activityType" : "Comment Removed",
+      "timeStamp" : "MON 11 2019 / 9:00:48"
     }
  ]

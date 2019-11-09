@@ -1,3 +1,7 @@
 export enum ActivityType{
-    LIKE,DISLIKE,ADD,REMOVE,UNDEFINED
+    LIKE="Like",
+    DISLIKE="Dislike",
+    ADD="Comment Added",
+    REMOVE="Comment Removed",
+    UNDEFINED="Undefined"
 }

@@ -3,12 +3,12 @@ import * as ActivityActions from '../action/blogs.activity.actions'
 import { ActivityType } from '../model/activity.type';
 
 const initialState: Activity = {
-    id: "",
     blogId: "",
     likes: false,
     dislikes: false,
     comments: "",
-    activityType: ActivityType.UNDEFINED
+    activityType: ActivityType.UNDEFINED,
+    timeStamp:null
 };
 
 export function activityReducer(state: Activity = initialState, action: ActivityActions.Action) {

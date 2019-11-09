@@ -37,15 +37,12 @@ export class HomeComponent implements OnInit {
         this.store.dispatch(new HomeActions.LoadHome(this.blogs));
         this.getDataFromStore();
       })
+    
+      this.activityService.getActivities().subscribe(data => {
+        console.log(data)
+        this.activityStore.dispatch(new ActivityActions.LoadActivity(data))
+      });
     }
-
-    this.activityService.getActivities().subscribe(data => {
-      console.log(data)
-      /*data.forEach((activityTemp, index, array) =>{
-        this.activityStore.dispatch(new ActivityActions.LoadActivity(activityTemp))
-      });*/
-      this.activityStore.dispatch(new ActivityActions.LoadActivity(data))
-    })
   }
 
   getDataFromStore(): boolean {

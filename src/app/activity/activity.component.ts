@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { MatTableDataSource } from '@angular/material/table';
 import { Activity } from '../shared/model/activity.model';
 import { ActivityAppState } from '../app.state.activity';
+import * as ActivityActions from '../shared/action/blogs.activity.actions';
 
 @Component({
   selector: 'app-activity',
@@ -11,7 +12,7 @@ import { ActivityAppState } from '../app.state.activity';
 })
 export class ActivityComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'blogId', 'likes', 'dislikes', 'comments'];
+  displayedColumns: string[] = ['blogId', 'likes', 'dislikes', 'comments', 'activityType', 'timeStamp'];
   dataSource : MatTableDataSource<Activity>;
 
   constructor(private activityStore: Store<ActivityAppState>) {
@@ -23,10 +24,13 @@ export class ActivityComponent implements OnInit {
   }
 
   getDataFromStore(): void {
-    this.activityStore.select('activity').subscribe(data =>{
+    ActivityActions.ActivityArray.forEach((value: Activity, index: number, array: Activity[])=> {
+      this.dataSource.data.push(value);
+    });
+    /*this.activityStore.select('activity').subscribe(data =>{
       console.log(data)
       this.dataSource = new MatTableDataSource<Activity>(data);
-    });
+    });*/
   }
 
 }

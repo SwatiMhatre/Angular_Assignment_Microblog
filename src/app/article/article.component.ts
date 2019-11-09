@@ -35,30 +35,30 @@ export class ArticleComponent implements OnInit {
   }
 
   addComment() {
-    let activity:Activity = {
-      id: "",
+    let activity: Activity = {
       blogId: this.articleId,
       likes: false,
       dislikes: false,
       comments: this.commentText,
-      activityType : ActivityType.ADD
-      };
-      this.activityStore.dispatch(new ActivityActions.AddComment(activity));
-      this.updateBlogsInStore(this.articleId);
-      this.updateHomePageActivityDetails(this.articleId);
-      this.comments.push(this.commentText);
-      this.commentText = ""
+      activityType: ActivityType.ADD,
+      timeStamp: this.getTimeStamp()
+    };
+    this.activityStore.dispatch(new ActivityActions.AddComment(activity));
+    this.updateBlogsInStore(this.articleId);
+    this.updateHomePageActivityDetails(this.articleId);
+    this.comments.push(this.commentText);
+    this.commentText = ""
   }
 
   likeOrDislikeActivity(type: string) {
-    let activity:Activity = {
-      id: "",
+    let activity: Activity = {
       blogId: this.articleId,
       likes: false,
       dislikes: false,
       comments: this.commentText,
-      activityType : ActivityType.ADD
-      };
+      activityType: ActivityType.ADD,
+      timeStamp: this.getTimeStamp()
+    };
     if (type === "like") {
       activity.likes = true;
       ++this.likes;
@@ -77,14 +77,14 @@ export class ArticleComponent implements OnInit {
   }
 
   deleteComment(index: number) {
-    let activity:Activity = {
-      id: "",
+    let activity: Activity = {
       blogId: this.articleId,
       likes: false,
       dislikes: false,
       comments: this.commentText,
-      activityType : ActivityType.REMOVE
-      };
+      activityType: ActivityType.REMOVE,
+      timeStamp: this.getTimeStamp()
+    };
     this.comments.splice(index, 1);
     this.activityStore.dispatch(new ActivityActions.AddComment(activity));
     this.updateBlogsInStore(this.articleId);
@@ -123,5 +123,29 @@ export class ArticleComponent implements OnInit {
         })
       }
     });
+  }
+
+  getTimeStamp(): string {
+    let now: Date = new Date();
+    let date: Array<String> = [this.getDayInString(now.getDay()), String(now.getMonth() + 1), String(now.getFullYear())];
+    let time: Array<String> = [String(now.getHours()), String(now.getMinutes()), String(now.getSeconds())];
+    return date.join(" ") + "/" + time.join(":");
+  }
+
+  getDayInString(dayNumber: number): string {
+    switch (dayNumber) {
+      case 0:
+        return "SUN";
+      case 1:
+        return "MON";
+      case 2:
+        return "TUE";
+      case 3:
+        return "THR";
+      case 4:
+        return "FRI";
+      case 5:
+        return "SAT";
+    }
   }
 }
