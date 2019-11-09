@@ -25,11 +25,11 @@
     </div>
 
     <div class="commentsContainer">
-        <div  *ngFor="let comment of comments; let id=index ">
+        <div *ngFor="let comment of comments; let id=index ">
             {{comment}}
             <i class="fa fa-trash col-sm-offset-2" aria-hidden="true" (click)="deleteComment(id)"></i>
         </div>
-       
+
     </div>
 
 </div>

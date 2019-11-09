@@ -1,10 +1,10 @@
 import { LoginComponent } from './auth/login/login.component';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './shared/material/material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
- 
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,8 +15,9 @@ import { StoreModule } from '@ngrx/store';
 import { homeReducer } from './shared/reducer/home.reducer';
 import { activityReducer } from './shared/reducer/blog.activity.reducer';
 import { HttpClientModule } from '@angular/common/http';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -25,23 +26,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     ActivityComponent,
     BsNavigationComponent,
-    ArticleComponent
+    ArticleComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path : 'home', component: HomeComponent},
-      { path : 'activity', component: ActivityComponent},
-      { path : 'login', loadChildren : './auth/auth-module.module#AuthModuleModule'}
+      { path: 'home', component: HomeComponent },
+      { path: 'activity', component: ActivityComponent },
+      { path: 'login', loadChildren: './auth/auth-module.module#AuthModule' }
     ]),
     StoreModule.forRoot({
-      blogs:homeReducer,
-      activity:activityReducer
+      blogs: homeReducer,
+      activity: activityReducer
     }),
     StoreDevtoolsModule.instrument({
-      maxAge : 10
+      maxAge: 10
     }),
     FormsModule,
     BrowserAnimationsModule,

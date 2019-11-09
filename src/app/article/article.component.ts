@@ -9,8 +9,6 @@ import { ActivityAppState } from '../app.state.activity';
 import { Home } from '../shared/model/home.model';
 import { ActivityType } from '../shared/model/activity.type';
 
-
-
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -56,7 +54,6 @@ export class ArticleComponent implements OnInit {
       this.updateBlogsInStore();
       this.updateHomePageActivityDetails();
     }
-
   }
 
   likeOrDislikeActivity(type: string) {
