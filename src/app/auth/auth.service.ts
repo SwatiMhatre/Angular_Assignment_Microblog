@@ -48,4 +48,8 @@ export class AuthService {
     console.log('User***',this.user);
     return this.user != null;
   }
+
+  getId(){
+    return this.user.userId;
+  }
 }

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
@@ -28,7 +29,7 @@ export class ArticleComponent implements OnInit {
   blogs: Blogs[];
   home: Home;
 
-  constructor(private homeStore: Store<AppState>, private activityStore: Store<ActivityAppState>) {
+  constructor(private homeStore: Store<AppState>, private activityStore: Store<ActivityAppState>, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -36,6 +37,7 @@ export class ArticleComponent implements OnInit {
 
   addComment() {
     let activity: Activity = {
+      userId: this.authService.getId(),
       blogId: this.articleId,
       likes: false,
       dislikes: false,
@@ -52,6 +54,7 @@ export class ArticleComponent implements OnInit {
 
   likeOrDislikeActivity(type: string) {
     let activity: Activity = {
+      userId: this.authService.getId(),
       blogId: this.articleId,
       likes: false,
       dislikes: false,
@@ -78,6 +81,7 @@ export class ArticleComponent implements OnInit {
 
   deleteComment(index: number) {
     let activity: Activity = {
+      userId: this.authService.getId(),
       blogId: this.articleId,
       likes: false,
       dislikes: false,

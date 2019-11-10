@@ -3,6 +3,7 @@ import * as ActivityActions from '../action/blogs.activity.actions'
 import { ActivityType } from '../model/activity.type';
 
 const initialState: Activity = {
+    userId: 0,
     blogId: "",
     likes: false,
     dislikes: false,
