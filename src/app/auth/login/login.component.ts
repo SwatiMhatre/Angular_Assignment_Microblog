@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
       }),
       password: new FormControl('', { validators: [Validators.required] })
     });
+    
   }
 
   onSubmit() {
