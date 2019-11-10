@@ -1,17 +1,19 @@
 <section>
   <form
     [formGroup]="loginForm"
-    (ngSubmit)="onSubmit()">
-    <mat-form-field>
+    (ngSubmit)="onSubmit()" class="text-center">
+    <div class="form-group">
+    <mat-form-field >
       <input
-        type="email"
+        type="text"
         matInput
-        placeholder="Your email"
-        formControlName="email">
-      <mat-hint>Please enter a valid email.</mat-hint>
-      <mat-error>Invalid or missing email.</mat-error>
+        placeholder="User Name"
+        formControlName="user_name">
+      <mat-error>Invalid or missing User Name.</mat-error>
     </mat-form-field>
-    <mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field class="form-group">
       <input
         type="password"
         matInput
@@ -20,6 +22,7 @@
       <mat-hint>Please enter your password.</mat-hint>
       <mat-error>Missing password.</mat-error>
     </mat-form-field>
+  </div>
     <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
   </form>
 </section>

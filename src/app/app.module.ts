@@ -1,3 +1,5 @@
+import { WelcomeComponent } from './welcome/welcome.component';
+import { AuthService } from './auth/auth.service';
 import { LoginComponent } from './auth/login/login.component';
 import { MaterialModule } from './shared/material/material.module';
 import { RouterModule } from '@angular/router';
@@ -27,17 +29,13 @@ import { FooterComponent } from './footer/footer.component';
     ActivityComponent,
     BsNavigationComponent,
     ArticleComponent,
-    FooterComponent
+    FooterComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
-      { path: 'activity', component: ActivityComponent },
-      { path: 'login', loadChildren: './auth/auth-module.module#AuthModule' }
-    ]),
     StoreModule.forRoot({
       blogs: homeReducer,
       activity: activityReducer
@@ -49,7 +47,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

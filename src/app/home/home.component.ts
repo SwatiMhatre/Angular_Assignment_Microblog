@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Blogs } from '../shared/model/blogs.model';
@@ -26,7 +27,11 @@ export class HomeComponent implements OnInit {
 
   blogsObservale: Observable<Blogs[]>;
 
-  constructor(private store: Store<AppState>, private activityStore: Store<ActivityAppState>, private blogsService: BlogsService, private activityService: ActivityService) {
+  constructor(private store: Store<AppState>, 
+    private activityStore: Store<ActivityAppState>, 
+    private blogsService: BlogsService, 
+    private activityService: ActivityService,
+    private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -37,11 +42,13 @@ export class HomeComponent implements OnInit {
         this.store.dispatch(new HomeActions.LoadHome(this.blogs));
         this.getDataFromStore();
       })
-    
+
       this.activityService.getActivities().subscribe(data => {
         console.log(data)
         this.activityStore.dispatch(new ActivityActions.LoadActivity(data))
       });
+
+      console.log('%%^&^&^',this.authService.isAuth());
     }
   }
 
